@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+.font-inter {
+  font-family: var(--font-inter);
+  font-variation-settings: "opsz" 32;
+}
+
+.font-mont {
+  font-family: var(--font-montserrat);
+}
+.font-bai {
+  font-family: var(--font-bai);
+}
+.smoothFly {
+  animation: smoothFly 3s ease-in-out infinite alternate;
+}
+@keyframes smoothFly {
+  0% {
+    transform: translateY(-25%);
+  }
+  100% {
+    transform: translateY(25%);
+  }
+}
