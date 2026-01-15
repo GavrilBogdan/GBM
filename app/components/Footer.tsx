@@ -23,7 +23,7 @@ export default function Footer() {
           <div className="flex items-center gap-4 mt-2">
             <SocialIcon
               icon={<Facebook size={20} />}
-              href="https://www.facebook.com/alina.popescu.180410"
+              href="https://www.facebook.com/"
               color="hover:text-blue-300"
             />
           </div>
