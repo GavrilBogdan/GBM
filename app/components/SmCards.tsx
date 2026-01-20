@@ -3,8 +3,8 @@ import { Reveal } from "./Reveal";
 
 const SmCards = () => {
   return (
-    <section className="relative px-6 mt-24 mb-20 font-mont overflow-x-hidden">
-      <div className="relative overflow-y-hidden mb-20 flex flex-col items-center">
+    <section className="relative px-1 sm:px-6 mt-24 mb-20 font-mont overflow-x-hidden">
+      <div className="relative mb-20 flex flex-col items-center overflow-hidden py-24">
         <span className="mb-3 text-xs tracking-[0.35em] uppercase text-indigo-400/70">
           Selected Work
         </span>
@@ -18,7 +18,7 @@ const SmCards = () => {
 
         <div className="mt-6 h-px w-56 bg-gradient-to-r from-transparent via-indigo-500/40 to-transparent" />
 
-        <div className="pointer-events-none absolute -top-20 h-48 w-96 rounded-full bg-indigo-500/20 blur-3xl" />
+        <div className="pointer-events-none absolute left-1/2 -top-24 -translate-x-1/2 h-32 w-72 sm:h-48 sm:w-96 rounded-full bg-indigo-500/20 blur-3xl" />
       </div>
       <Reveal delayMs={200}>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-6xl mx-auto">

@@ -14,6 +14,46 @@
 .smoothFly {
   animation: smoothFly 3s ease-in-out infinite alternate;
 }
+@keyframes symbolFloat {
+  0% {
+    transform: translateY(0px);
+    opacity: 0.4;
+  }
+  10% {
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-60px);
+    opacity: 0.4;
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-120px);
+    opacity: 0.5;
+  }
+}
+
+.floating-symbol {
+  animation: symbolFloat 18s alternate infinite;
+  filter: blur(0.3px);
+}
+@keyframes cardFloat {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-cardFloat {
+  animation: cardFloat 6s ease-in-out infinite;
+}
 @keyframes smoothFly {
   0% {
     transform: translateY(-25%);
@@ -21,4 +61,71 @@
   100% {
     transform: translateY(25%);
   }
+}
+@keyframes floatSlow {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes floatMedium {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-35px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes floatFast {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-50px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-floatSlow {
+  animation: floatSlow 12s ease-in-out infinite;
+}
+
+.animate-floatMedium {
+  animation: floatMedium 9s ease-in-out infinite;
+}
+
+.animate-floatFast {
+  animation: floatFast 7s ease-in-out infinite;
+}
+
+@keyframes particle {
+  0% {
+    transform: translateY(0);
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-120px);
+    opacity: 0;
+  }
+}
+
+.animate-particle {
+  animation-name: particle;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }

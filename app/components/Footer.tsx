@@ -23,7 +23,7 @@ export default function Footer() {
           <div className="flex items-center gap-4 mt-2">
             <SocialIcon
               icon={<Facebook size={20} />}
-              href="https://www.facebook.com/"
+              href=""
               color="hover:text-blue-300"
             />
           </div>
@@ -35,7 +35,7 @@ export default function Footer() {
           </h3>
           <ul className="flex flex-col gap-3 text-blue-100/80">
             <FooterLink href="/" text="Home" />
-            <FooterLink href="/servicii" text="Services" />
+            <FooterLink href="/Services" text="Services" />
             <FooterLink href="/preturi" text="Packages" />
             <FooterLink href="/contact" text="Contact Me" />
           </ul>
