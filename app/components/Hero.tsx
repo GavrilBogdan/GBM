@@ -27,6 +27,7 @@ const Hero = () => {
         <h1 className="text-7xl sm:text-8xl font-extrabold font-inter mb-[0.5rem] sm:mb-[1rem]">
           GBM
         </h1>
+        <div className="h-[2px] bg-gradient-to-r from-transparent via-blue-500/40 to-transparent my-2 " />
       </Reveal>
       <Reveal delayMs={300}>
         <p className="blue-200 text-2xl text-center font-mont font-light">

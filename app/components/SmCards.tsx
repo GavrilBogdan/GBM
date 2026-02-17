@@ -3,7 +3,7 @@ import { Reveal } from "./Reveal";
 
 const SmCards = () => {
   return (
-    <section className="relative px-1 sm:px-6 mt-24 mb-20 font-mont overflow-x-hidden">
+    <section className="relative px-1 sm:px-6 mt-24 mb-20 font-mont overflow-x-hidden overflow-y-hidden">
       <div className="relative mb-20 flex flex-col items-center overflow-hidden py-24">
         <span className="mb-3 text-xs tracking-[0.35em] uppercase text-indigo-400/70">
           Selected Work

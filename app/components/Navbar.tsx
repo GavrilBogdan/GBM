@@ -15,7 +15,7 @@ const Navbar = () => {
           fixed top-4 left-1/2 -translate-x-1/2
           w-[80%] lg:w-[70%]
           z-50
-          backdrop-blur-xl bg-white/10
+          backdrop-blur-xl shadow-lg shadow-blue-600/20
           border border-white/20
           shadow-[0_4px_25px_rgba(0,0,0,0.08)]
           rounded-full
@@ -27,9 +27,9 @@ const Navbar = () => {
           </Link>
 
           <div className="flex items-center gap-10">
-            <NavItem href="/">Acasă</NavItem>
-            <NavItem href="/servicii">Servicii</NavItem>
-            <NavItem href="/preturi">Prețuri</NavItem>
+            <NavItem href="/">Home</NavItem>
+            <NavItem href="/Services">Services</NavItem>
+            <NavItem href="/preturi">Prices</NavItem>
             <NavItem href="/contact">Contact</NavItem>
 
             <Link
