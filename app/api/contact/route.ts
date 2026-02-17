@@ -1,15 +1,10 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const apiKey = process.env.RESEND_API_KEY;
-if (!apiKey) {
-  throw new Error("Missing RESEND_API_KEY in .env.local (restart dev server).");
-}
-
-const resend = new Resend(apiKey);
+export const runtime = "nodejs";
 
 function esc(s: string) {
-  return s
+  return String(s || "")
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
@@ -19,8 +14,38 @@ function esc(s: string) {
 
 export async function POST(req: Request) {
   try {
-    const body = await req.json();
+    // ✅ move env reads INSIDE handler
+    const apiKey = process.env.RESEND_API_KEY;
+    const to = process.env.RESEND_TO_EMAIL;
+    const from = process.env.RESEND_FROM_EMAIL;
 
+    if (!apiKey) {
+      return NextResponse.json(
+        { error: "Server misconfigured: missing RESEND_API_KEY." },
+        { status: 500 },
+      );
+    }
+    if (!to || !from) {
+      return NextResponse.json(
+        {
+          error:
+            "Server misconfigured: missing RESEND_TO_EMAIL or RESEND_FROM_EMAIL.",
+        },
+        { status: 500 },
+      );
+    }
+
+    const resend = new Resend(apiKey);
+
+    const body = await req.json().catch(() => null);
+    if (!body) {
+      return NextResponse.json(
+        { error: "Invalid JSON body." },
+        { status: 400 },
+      );
+    }
+
+    // ✅ keep YOUR payload keys (edit if needed)
     const userName = String(body.userName || "").trim();
     const userPhone = String(body.userPhone || "").trim();
     const packageName = String(body.packageName || "Custom Quote").trim();
@@ -30,16 +55,6 @@ export async function POST(req: Request) {
       return NextResponse.json(
         { error: "Missing required fields: userName, userPhone" },
         { status: 400 },
-      );
-    }
-
-    const to = process.env.RESEND_TO_EMAIL;
-    const from = process.env.RESEND_FROM_EMAIL;
-
-    if (!to || !from) {
-      return NextResponse.json(
-        { error: "Missing RESEND_TO_EMAIL or RESEND_FROM_EMAIL in env vars" },
-        { status: 500 },
       );
     }
 
@@ -53,7 +68,6 @@ export async function POST(req: Request) {
     const html = `
       <div style="margin:0;padding:0;background:#0b1220">
         <div style="max-width:640px;margin:0 auto;padding:28px 16px;">
-          
           <div style="
             background: linear-gradient(135deg, rgba(37,99,235,1), rgba(56,189,248,1));
             border-radius: 18px;
@@ -100,9 +114,9 @@ export async function POST(req: Request) {
           ">
             <div style="padding:12px 12px;border-radius:14px;background: rgba(255,255,255,.06);">
               <div style="font-size:12px;opacity:.8;">Phone</div>
-              <div style="font-size:16px;font-weight:800;margin-top:2px;">${esc(
-                userPhone,
-              )}</div>
+              <div style="font-size:16px;font-weight:800;margin-top:2px;">
+                ${esc(userPhone)}
+              </div>
             </div>
 
             <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;">
@@ -133,7 +147,6 @@ export async function POST(req: Request) {
               Sent from: <b>/form</b>
             </div>
           </div>
-
         </div>
       </div>
     `;
@@ -146,11 +159,19 @@ export async function POST(req: Request) {
     });
 
     if (error) {
-      return NextResponse.json({ error }, { status: 500 });
+      console.error("RESEND ERROR:", error);
+      return NextResponse.json(
+        { error: (error as any)?.message || "Email send failed." },
+        { status: 500 },
+      );
     }
 
     return NextResponse.json({ ok: true, id: data?.id });
-  } catch (e) {
-    return NextResponse.json({ error: "Server error" }, { status: 500 });
+  } catch (e: any) {
+    console.error("API /api/contact ERROR:", e);
+    return NextResponse.json(
+      { error: e?.message || "Server error" },
+      { status: 500 },
+    );
   }
 }
