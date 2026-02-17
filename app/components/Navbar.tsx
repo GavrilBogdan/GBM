@@ -96,7 +96,7 @@ const Navbar = () => {
         </button>
 
         <MobileNavItem href="/">Acasă</MobileNavItem>
-        <MobileNavItem href="/servicii">Servicii</MobileNavItem>
+        <MobileNavItem href="/Services">Servicii</MobileNavItem>
         <MobileNavItem href="/preturi">Prețuri</MobileNavItem>
         <MobileNavItem href="/contact">Contact</MobileNavItem>
 
