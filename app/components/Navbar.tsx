@@ -41,7 +41,7 @@ const Navbar = () => {
                 hover:scale-105 transition-all duration-200
               "
             >
-              Cere Ofertă
+              Request a Quote
             </Link>
           </div>
         </nav>
@@ -65,7 +65,7 @@ const Navbar = () => {
           GBM
         </Link>
 
-        <button onClick={() => setOpen(true)} className="text-blue-700">
+        <button onClick={() => setOpen(true)} className="text-blue-400">
           <Menu size={30} />
         </button>
       </header>
@@ -89,15 +89,15 @@ const Navbar = () => {
         `}
       >
         <button
-          className="self-end text-blue-600 mb-2"
+          className="self-end text-blue-400 mb-2"
           onClick={() => setOpen(false)}
         >
           <X size={32} />
         </button>
 
-        <MobileNavItem href="/">Acasă</MobileNavItem>
-        <MobileNavItem href="/Services">Servicii</MobileNavItem>
-        <MobileNavItem href="/preturi">Prețuri</MobileNavItem>
+        <MobileNavItem href="/">Home</MobileNavItem>
+        <MobileNavItem href="/Services">Services</MobileNavItem>
+        <MobileNavItem href="/preturi">Prices</MobileNavItem>
         <MobileNavItem href="/contact">Contact</MobileNavItem>
 
         <Link
@@ -109,7 +109,7 @@ const Navbar = () => {
             hover:scale-105 transition-all
           "
         >
-          Cere Ofertă
+          Request a Quote
         </Link>
       </div>
     </>

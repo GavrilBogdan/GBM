@@ -24,7 +24,7 @@ const FinalCTA = () => {
           </Link>
 
           <a
-            href="tel:0"
+            href="tel:0736810678"
             className="px-3 py-2 sm:px-10 sm:py-4 rounded-full border-2 border-blue-600 text-blue-700 font-bold hover:shadow-lg hover:shadow-blue-700 transition duration-500"
           >
             Call Now
