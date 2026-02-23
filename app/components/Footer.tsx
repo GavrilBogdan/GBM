@@ -74,6 +74,17 @@ export default function Footer() {
             </div>
           </div>
         </div>
+        <div>
+          <h3 className="text-xl font-bold mb-6 text-blue-100 uppercase tracking-wider">
+            Legal
+          </h3>
+          <a
+            className="flex items-center gap-3 hover:text-white transition group"
+            href="/gdpr"
+          >
+            Privacy Policy ( GDPR )
+          </a>
+        </div>
       </div>
 
       <div className="w-full border-t border-indigo-400/30 mt-16 pt-8 flex flex-col items-center gap-6">
